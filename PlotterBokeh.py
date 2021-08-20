@@ -1,3 +1,4 @@
+from bokeh.core.enums import SizingMode
 from bokeh.plotting import gmap
 from bokeh.models import ColumnDataSource, GMapOptions, Circle, ImageURL
 from bokeh.models.tools import PanTool, WheelZoomTool, ResetTool, HoverTool
@@ -27,7 +28,7 @@ class PlotterBokeh():
         tools = [PanTool(), WheelZoomTool(), ResetTool()]
         map_options = GMapOptions(lat=lat, lng=lng, map_type="roadmap", zoom=15)
         self.apiKey = apiKey
-        self.fig = gmap(self.apiKey, map_options, title="Yokohama Bus Map", tools=tools, height=300)
+        self.fig = gmap(self.apiKey, map_options, title="Yokohama Bus Map", tools=tools, sizing_mode='stretch_both')
 
     def init_buslocation(self, bus_list):
 
