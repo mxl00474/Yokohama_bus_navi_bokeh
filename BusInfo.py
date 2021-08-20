@@ -22,12 +22,14 @@ class BusInfo:
     @staticmethod
     def init():
         
-        BusInfo.is_initialized = True
-        apiKey = os.getenv('BUS_TOKEN')
-        BusInfo.params['acl:consumerKey'] = apiKey
+        if not BusInfo.is_initialized:
+            
+            BusInfo.is_initialized = True
+            apiKey = os.getenv('BUS_TOKEN')
+            BusInfo.params['acl:consumerKey'] = apiKey
 
-        BusInfo.getBusStops()
-        BusInfo.getBusRoutes()
+            BusInfo.getBusStops()
+            BusInfo.getBusRoutes()
 
     @staticmethod
     def getBusRoutes():
