@@ -17,10 +17,12 @@ class BusInfo:
 
     bus_stops = None
     bus_routes = None
+    is_initialized = False
 
     @staticmethod
     def init():
         
+        BusInfo.is_initialized = True
         apiKey = os.getenv('BUS_TOKEN')
         BusInfo.params['acl:consumerKey'] = apiKey
 
